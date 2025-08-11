@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GORLAN — Микрофинансовая организация</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="logo.png" alt="logo" class="hero-image">
+        <div class="brand-text">
+          <h1>GORLAN</h1>
+          <p>Современная микрофинансовая организация</p>
+        </div>
+      </div>
+      <div class="rate">Процент: <strong>+150%/мес</strong></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div class="hero-left">
+        <h2>Ваш финансовый партнёр</h2>
+        <p class="lead">GORLAN — современная микрофинансовая организация в стиле банка: тёмные условия,работа через подставное ИП, быстрое решение и личный менеджер со сроком 10 лет строгого режима.</p>
+        <ul class="features">
+          <li>Онлайн-заявка за 0 минут! Ваши данные мы уже подсосали из госуслуг,но для галочки добавили поле,чтобы вы думали что контролируете процесс</li>
+          <li>Перевод на карту и вызов картеля на фактический адрес проживания в тот же день</li>
+          <li>Поддержка 24/7 сидит на зоне</li>
+          <li>Без скрытых комиссий,которые вам скажет коллектор на ушко</li>
+        </ul>
+      </div>
+      <div class="hero-right">
+        <img src="foto_criminal-callcenter.jpg" alt="Офис GORLAN" class="hero-image">
+      </div>
+    </section>
+
+    <section class="calculator card" id="calculator">
+      <h2>Калькулятор займа</h2>
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <label>Сумма займа (₽)
+            <input id="loan-amount" type="number" value="10000" min="0" />
+          </label>
+          <label>Срок (месяцев)
+            <input id="loan-months" type="number" value="3" min="1" max="12" />
+          </label>
+          <div class="note">Ставка: <strong>150% в месяц</strong></div>
+          <button id="open-form" class="btn btn-primary">Оставить заявку</button>
+        </div>
+
+        <div class="calc-results" aria-live="polite">
+          <div class="result"><span>Капитализация (итог):</span><strong id="result-cap">—</strong></div>
+          <div class="result"><span>Ежемесячный платёж:</span><strong id="result-annuity">—</strong></div>
+          <div class="result"><span>Всего выплачено:</span><strong id="result-total">—</strong></div>
+          <div class="result"><span>Переплата:</span><strong id="result-interest">—</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about card" id="about">
+      <h2>О нас</h2>
+      <p>GORLAN — профессиональная микрофинансовая организация. Мы работаем по блатным понятиям.Темные условия, слив данных в глаз боба и индивидуальный подход к избиениям!</p>
+      <div class="about-cards">
+        <div class="about-card"><div class="icon">⏱</div><h3>Быстро</h3><p>Онлайн-оформление за 5 минут.</p></div>
+        <div class="about-card"><div class="icon">💳</div><h3>Удобно</h3><p>Деньги на карту в день одобрения.</p></div>
+        <div class="about-card"><div class="icon">📞</div><h3>Поддержка</h3><p>Ее нет.Работает класифицированный,матерый сотрудник Сбербанка</p></div>
+        <div class="about-card"><div class="icon">✅</div><h3>Честно</h3><p>Никаких скрытых комиссий.Самые лучшие картели работают на нас.</p></div>
+      </div>
+    </section>
+
+    <section class="team card" id="team">
+      <h2>Наша команда</h2>
+      <div class="carousel-wrap">
+        <button class="carousel-btn prev" aria-label="Назад">‹</button>
+        <div class="carousel" id="carousel">
+          <!-- slides inserted by JS -->
+        </div>
+        <button class="carousel-btn next" aria-label="Вперед">›</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">GORLAN © <span id="year"></span> — Надёжность и доверие</div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">✖</button>
+      <div class="modal-body">
+        <h3 id="modal-title">Оформление заявки</h3>
+        <form id="loan-form" class="form-stack" autocomplete="off">
+          <input name="fio" placeholder="Фамилия, имя, отчество" required />
+          <input name="birthdate" type="date" placeholder="Дата рождения" required />
+          <input name="birthplace" placeholder="Место рождения" required />
+          <select name="gender" required>
+            <option value="">Пол</option>
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+          </select>
+          <input name="address" placeholder="Место жительства (адрес)" required />
+          <input name="military" placeholder="Сведения о воинской обязанности (если есть)" />
+          <input name="passport" placeholder="Серия и номер паспорта" required />
+          <input name="issuedDate" type="date" placeholder="Дата выдачи паспорта" required />
+          <input name="issuedBy" placeholder="Орган, выдавший паспорт" required />
+          <input name="phone" type="tel" placeholder="Телефон" required />
+          <input name="email" type="email" placeholder="E-mail" required />
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary full">Отправить</button>
+          </div>
+        </form>
+
+        <div id="success" class="success hidden" role="status" aria-live="polite">
+          <div class="check-wrap">
+            <svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#16a34a"/><path d="M14 27 l8 8 16-20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="success-text">
+  Микрозайм оформлен! Ожидайте коллектора под номером #<span id="result"></span>
+</div>
+      </div>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
